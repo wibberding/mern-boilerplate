@@ -8,7 +8,7 @@ const orderSchema = new Schema({
   buyer: String,
   seller: String,
   Items: Array,
-    //* Items need to include quantity sold, item id, and price in case it changes.
+  //* Items need to include quantity sold, item id, and price in case it changes.
 
 });
 
