@@ -48,7 +48,7 @@ export default function Navigation() {
             component={Link}
           >
             <Title className="logo" size="3">
-              MERN Boilerplate
+              Local Farmer
             </Title>
           </Navbar.Item>
           <div className="navbar-brand-right">
