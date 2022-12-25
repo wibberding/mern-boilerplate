@@ -1,0 +1,35 @@
+Version 2
+  Collect local taxes and start selling retail.
+    https://www.harborcompliance.com/information/register-sales-use-tax-license-permit
+    Collect as reseller, or pass this on to supplier? - Collect for seller.
+  API to update inventory automatically.- 2.0 feature. 
+
+Initial marketing
+  Suppliers will use it because it makes a quick website and way to take payments
+  Buyer will use it because it's easy to order
+  Future contracts for restaurants and stores to deliver goods in the future. 
+
+Website Features
+  Create future contracts.
+  Could be fulfilled by one or multiple farmers
+  Take credit cards. 
+  Process shipping
+  Choose method of delivery
+    Shipping
+      Create shipping options
+      Shippo API
+        Carrier choice
+    Pickup
+      Create pickup locations with times. 
+    Local delivery
+      Create delivery areas with cost and time ranger (Tuesdays 1-4pm.
+  List items for sale. 
+    Number available
+    Able to take orders for what is not available. 
+
+Legal
+  Model after Etsy, but don't copy due to copyright issues.
+
+Financial
+  Charge 6.5% like Etsy
+  2.9% + $0.30 credit cards
