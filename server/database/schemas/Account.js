@@ -9,6 +9,7 @@ const accountSchema = new Schema({
   about_description: String,
   seller_account: Boolean,
   buyer_account: Boolean,
+  wholesale_buyer: Boolean,
 });
 
 const Account = mongoose.model('Account', accountSchema);

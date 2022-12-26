@@ -7,8 +7,7 @@ const { Schema } = mongoose;
 const orderSchema = new Schema({
   buyer: String,
   seller: String,
-  Items: Array,
-  //* Items need to include quantity sold, item id, and price in case it changes.
+  Items: //* Populate by searching for DeliveryItems that have this order ID
 
 });
 

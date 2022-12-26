@@ -4,6 +4,9 @@ const Todo = require('./Todo');
 const Account = require('./Account');
 const Item = require('./Item');
 const Order = require('./Order');
+const Delivery = require('./Delivery');
+const DeliveryItem = require('./DeliveryItem');
+const DeliveryMethod = require('./DeliveryMethod');
 
 module.exports = {
   Session,
@@ -12,4 +15,7 @@ module.exports = {
   Account,
   Item,
   Order,
+  Delivery,
+  DeliveryItem,
+  DeliveryMethod,
 };
