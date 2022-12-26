@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 const orderSchema = new Schema({
   buyer: String,
   seller: String,
-  Items: //* Populate by searching for DeliveryItems that have this order ID
+  items: Array, //* Populate by searching for DeliveryItems that have this order ID
 
 });
 

@@ -1,5 +1,6 @@
 Version 2
   Collect local taxes and start selling retail.
+    Use Stripe Checkout to collect taxes.
     https://www.harborcompliance.com/information/register-sales-use-tax-license-permit
     Collect as reseller, or pass this on to supplier? - Collect for seller.
   API to update inventory automatically.- 2.0 feature. 
@@ -33,3 +34,6 @@ Legal
 Financial
   Charge 6.5% like Etsy
   2.9% + $0.30 credit cards
+
+
+  react-use-cart    https://www.npmjs.com/package/react-use-cart

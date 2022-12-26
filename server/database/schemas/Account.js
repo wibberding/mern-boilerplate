@@ -10,6 +10,7 @@ const accountSchema = new Schema({
   seller_account: Boolean,
   buyer_account: Boolean,
   wholesale_buyer: Boolean,
+  ein_number: String,
 });
 
 const Account = mongoose.model('Account', accountSchema);
