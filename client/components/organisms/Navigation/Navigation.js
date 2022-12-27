@@ -14,7 +14,7 @@ import UserDropdown from '_components/molecules/UserDropdown';
 export default function Navigation() {
   const { pathname } = useLocation();
   const { user } = useSelector(R.pick(['user']));
-
+  console.log('user view', user.sellerView);
   const [auth, setAuth] = useState(!R.isEmpty(user));
   const [open, setOpen] = useState(false);
 
@@ -48,7 +48,7 @@ export default function Navigation() {
             component={Link}
           >
             <Title className="logo" size="3">
-              Local Farmer
+              {user.sellerView ? 'Farmer Market Seller' : 'Farmer Market Buyer'}
             </Title>
           </Navbar.Item>
           <div className="navbar-brand-right">

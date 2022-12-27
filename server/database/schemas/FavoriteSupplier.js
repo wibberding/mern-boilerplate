@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 const favoriteSupplierSchema = new Schema({
   supplier_id: String,
-  buyer_id: String
+  buyer_id: String,
 });
 
 const FavoriteSupplier = mongoose.model('FavoriteSupplier', favoriteSupplierSchema);

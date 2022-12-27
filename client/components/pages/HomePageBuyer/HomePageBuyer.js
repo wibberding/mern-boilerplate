@@ -9,7 +9,7 @@ import Title from 'react-bulma-companion/lib/Title';
 
 import styles from './styles.module.css';
 
-export default function HomePage() {
+export default function HomePageBuyer() {
   const dispatch = useDispatch();
   const { user } = useSelector(R.pick(['user']));
 
@@ -24,7 +24,7 @@ export default function HomePage() {
       <Section>
         <Container>
           <Title size="1">
-            Home Page
+            Home Page Buyer
           </Title>
         </Container>
       </Section>
