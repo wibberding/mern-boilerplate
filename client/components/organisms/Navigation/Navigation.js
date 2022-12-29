@@ -14,9 +14,14 @@ import UserDropdown from '_components/molecules/UserDropdown';
 export default function Navigation() {
   const { pathname } = useLocation();
   const { user } = useSelector(R.pick(['user']));
-  console.log('user view', user.sellerView);
   const [auth, setAuth] = useState(!R.isEmpty(user));
   const [open, setOpen] = useState(false);
+  let homeUrl = '';
+  if (user.sellerView) {
+    homeUrl = '/home_s';
+  } else {
+    homeUrl = '/home_b';
+  }
 
   useEffect(() => {
     setAuth(!R.isEmpty(user));
@@ -26,9 +31,9 @@ export default function Navigation() {
 
   const closeDropdown = () => setOpen(false);
 
-  const isHome = (pathname.length === 5)
-    ? pathname === '/home'
-    : R.slice(0, 6, pathname) === '/home/';
+  const isHome = (pathname.length === 7)
+    ? pathname === `${homeUrl}`
+    : R.slice(0, 6, pathname) === `${homeUrl}/`;
 
   const isTodo = (pathname.length === 5)
     ? pathname === '/todo'
@@ -43,7 +48,7 @@ export default function Navigation() {
       <Container>
         <Navbar.Brand>
           <Navbar.Item
-            to={auth ? '/home' : '/'}
+            to={auth ? `${homeUrl}` : '/'}
             aria-label="main navigation"
             component={Link}
           >
@@ -97,7 +102,7 @@ export default function Navigation() {
             <Navbar.Start>
               <Navbar.Item
                 className="is-hidden-mobile"
-                to="/home"
+                to={homeUrl}
                 active={isHome}
                 tab
                 component={Link}

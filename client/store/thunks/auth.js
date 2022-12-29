@@ -23,8 +23,11 @@ export const attemptLogin = user => dispatch =>
           duration: 5000,
         },
       });
-
-      dispatch(push('/home'));
+      if (data.user.seller_view) {
+        dispatch(push('/home_s'));
+      } else {
+        dispatch(push('/home_b'));
+      }
       return data;
     })
     .catch(dispatchError(dispatch));

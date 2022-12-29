@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   user: Number,
   account_id: String,
-  seller_view: { type: Boolean, default: false}, //* Determines what view user is in.
+  seller_view: { type: Boolean, default: false }, //* Determines what view user is in.
   username: { type: String, lowercase: true, required: true, unique: true, immutable: true },
   username_case: { type: String, required: true },
   password: { type: String, required: true },

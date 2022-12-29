@@ -15,7 +15,11 @@ export default function WelcomePage() {
 
   useEffect(() => {
     if (!R.isEmpty(user)) {
-      dispatch(push('/home'));
+      if (user.sellerView) {
+        dispatch(push('/home_s'));
+      } else {
+        dispatch(push('/home_b'));
+      }
     }
   }, [dispatch, user]);
 

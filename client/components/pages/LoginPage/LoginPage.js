@@ -13,7 +13,11 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (!R.isEmpty(user)) {
-      dispatch(push('/home'));
+      if (user.sellerView) {
+        dispatch(push('/home_s'));
+      } else {
+        dispatch(push('/home_b'));
+      }
     }
   }, [dispatch, user]);
 

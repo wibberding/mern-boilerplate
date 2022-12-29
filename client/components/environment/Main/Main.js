@@ -48,8 +48,8 @@ export default function Main() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
-          <Route path="home" element={<HomePageBuyer />} />
-          <Route path="home_seller" element={<HomePageSeller />} />
+          <Route path="home_b" element={<HomePageBuyer />} />
+          <Route path="home_s" element={<HomePageSeller />} />
           <Route path="todo" element={<TodoPage />} />
           <Route path="settings/*" element={<SettingsPage />} />
           <Route path="*" element={<LostPage />} />
