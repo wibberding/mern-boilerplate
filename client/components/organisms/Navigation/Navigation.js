@@ -53,7 +53,7 @@ export default function Navigation() {
             component={Link}
           >
             <Title className="logo" size="3">
-              {user.sellerView ? 'Farmer Market Seller' : 'Farmer Market Buyer'}
+              {user.sellerView ? 'Grub Vine - Seller' : 'Grub Vine - Buyer'}
             </Title>
           </Navbar.Item>
           <div className="navbar-brand-right">

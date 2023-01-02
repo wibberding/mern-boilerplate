@@ -9,6 +9,7 @@ const userSchema = new Schema({
   user: Number,
   account_id: String,
   seller_view: { type: Boolean, default: false }, //* Determines what view user is in.
+  has_seller_account: { type: Boolean, default: false },
   username: { type: String, lowercase: true, required: true, unique: true, immutable: true },
   username_case: { type: String, required: true },
   password: { type: String, required: true },

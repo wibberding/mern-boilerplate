@@ -56,6 +56,19 @@ export default function UserDropdown({ open, closeDropdown }) {
             Settings
           </Link>
         </li>
+        <li className="dropdown-item">
+          {user.sellerView ? (
+            <Link to="/settings" onClick={closeDropdown}>Switch to Buyer View </Link>
+          ) : (
+            user.hasSellerAccount ? (
+              <Link to="/settings" onClick={closeDropdown}>Switch to Seller View </Link>
+            ) : (
+              <Link to="/settings" onClick={closeDropdown}>
+                Open Seller Account
+              </Link>
+            )
+          )}
+        </li>
         <hr className="dropdown-separator" />
         <li className="dropdown-item">
           <a onClick={logout} onKeyPress={logout}>
