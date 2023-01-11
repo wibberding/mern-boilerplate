@@ -48,3 +48,15 @@ router.put('/', requireAuth, (req, res) => {
     res.status(200).send({ message: 'User successfully updated', user: user.hidePassword() });
   });
 });
+
+//* Sets view to seller or buyer for user.
+router.put('/set_view', requireAuth, (req, res) => {
+  req.body.updated_at = Date.now();
+  const seller_view = req.body.seller_view;
+  User.findByIdAndUpdate({ _id: req.user._id }, { seller_view: seller_view }, { new: true }, (err, user) => {
+    if (err) {
+      res.status(400).send({ err, message: 'Error setting user view' });
+    }
+    res.status(200).send({ message: 'User view successfully updated', user: user.hidePassword() });
+  });
+});

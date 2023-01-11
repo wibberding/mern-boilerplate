@@ -17,3 +17,10 @@ export const putUserPassword = passwordInfo =>
     .send(passwordInfo)
     .then(handleSuccess)
     .catch(handleError);
+
+//* Sets user view to buyer or seller view to persist after logouts.
+export const putUserView = sellerView =>
+  request.put('/api/user/set_view')
+    .send(sellerView)
+    .then(handleSuccess)
+    .catch(handleError);
