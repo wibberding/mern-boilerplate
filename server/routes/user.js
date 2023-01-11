@@ -52,8 +52,8 @@ router.put('/', requireAuth, (req, res) => {
 //* Sets view to seller or buyer for user.
 router.put('/set_view', requireAuth, (req, res) => {
   req.body.updated_at = Date.now();
-  const seller_view = req.body.seller_view;
-  User.findByIdAndUpdate({ _id: req.user._id }, { seller_view: seller_view }, { new: true }, (err, user) => {
+  const { sellerView } = req.body;
+  User.findByIdAndUpdate({ _id: req.user._id }, { seller_view: sellerView }, { new: true }, (err, user) => {
     if (err) {
       res.status(400).send({ err, message: 'Error setting user view' });
     }
