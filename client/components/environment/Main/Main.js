@@ -15,6 +15,8 @@ import InventoryPage from '_components/pages/InventoryPage';
 import OrdersPage from '_components/pages/OrdersPage';
 import DeliveryMethodsPage from '_components/pages/DeliveryMethodsPage';
 import RateBuyerPage from '_components/pages/RateBuyerPage';
+import RateSellerPage from '_components/pages/RateSellerPage';
+import FavoriteSuppliersPage from '_components/pages/FavoriteSuppliersPage';
 import TodoPage from '_components/pages/TodoPage';
 import SettingsPage from '_components/pages/SettingsPage';
 import LostPage from '_components/pages/LostPage';
@@ -58,6 +60,8 @@ export default function Main() {
           <Route path="delivery_methods" element={<DeliveryMethodsPage />} />
           <Route path="orders" element={<OrdersPage />} />
           <Route path="rate/buyer" element={<RateBuyerPage />} />
+          <Route path="rate/seller" element={<RateSellerPage />} />
+          <Route path="favorite_suppliers" element={<FavoriteSuppliersPage />} />
           <Route path="todo" element={<TodoPage />} />
           <Route path="settings/*" element={<SettingsPage />} />
           <Route path="*" element={<LostPage />} />
