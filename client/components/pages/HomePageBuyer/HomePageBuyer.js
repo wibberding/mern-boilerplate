@@ -39,7 +39,7 @@ export default function HomePageBuyer() {
           <Title size="1">
             Home Page Buyer
           </Title>
-          <input type="text" placeholder="Search for items" />
+          <input type="text" placeholder="Search for items, or seller's near you." />
           <br />
           <br />
 

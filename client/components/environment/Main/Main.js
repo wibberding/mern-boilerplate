@@ -12,6 +12,7 @@ import RegisterPage from '_components/pages/RegisterPage';
 import HomePageBuyer from '_components/pages/HomePageBuyer';
 import HomePageSeller from '_components/pages/HomePageSeller';
 import InventoryPage from '_components/pages/InventoryPage';
+import AddInventoryPage from '_components/pages/AddInventoryPage';
 import OrdersPage from '_components/pages/OrdersPage';
 import DeliveryMethodsPage from '_components/pages/DeliveryMethodsPage';
 import RateBuyerPage from '_components/pages/RateBuyerPage';
@@ -57,6 +58,7 @@ export default function Main() {
           <Route path="home_b" element={<HomePageBuyer />} />
           <Route path="home_s" element={<HomePageSeller />} />
           <Route path="inventory" element={<InventoryPage />} />
+          <Route path="add_inventory" element={<AddInventoryPage />} />
           <Route path="delivery_methods" element={<DeliveryMethodsPage />} />
           <Route path="orders" element={<OrdersPage />} />
           <Route path="rate/buyer" element={<RateBuyerPage />} />

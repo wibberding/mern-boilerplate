@@ -63,6 +63,9 @@ export default function HomePageBuyer() {
           </Columns>
         </Container>
       </Section>
+      <Section>
+        <p>Another section</p>
+      </Section>
     </div>
   );
 }
