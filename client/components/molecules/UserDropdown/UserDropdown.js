@@ -47,11 +47,6 @@ export default function UserDropdown({ open, closeDropdown }) {
         </li>
         <hr className="dropdown-separator" />
         <li className="dropdown-item">
-          <Link to="/todo" onClick={closeDropdown}>
-            Todo List
-          </Link>
-        </li>
-        <li className="dropdown-item">
           <Link to="/settings" onClick={closeDropdown}>
             Settings
           </Link>

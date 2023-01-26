@@ -22,7 +22,7 @@ export default function InventoryPage() {
           <Title size="1">
             Inventory
           </Title>
-          <Button color="success" onClick={routeChange} data-path="/add_inventory" fullwidth>
+          <Button color="success" onClick={routeChange} data-path="/add_inventory">
             Add Item
           </Button>
         </Container>

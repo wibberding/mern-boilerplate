@@ -55,11 +55,6 @@ export default function HomePageBuyer() {
                 Orders
               </Button>
             </Column>
-            <Column size="2">
-              <Button color="success" onClick={routeChange} data-path="/rate/buyer" fullwidth>
-                Rate a Buyer
-              </Button>
-            </Column>
           </Columns>
         </Container>
       </Section>

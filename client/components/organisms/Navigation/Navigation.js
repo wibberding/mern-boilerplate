@@ -35,10 +35,6 @@ export default function Navigation() {
     ? pathname === `${homeUrl}`
     : R.slice(0, 6, pathname) === `${homeUrl}/`;
 
-  const isTodo = (pathname.length === 5)
-    ? pathname === '/todo'
-    : R.slice(0, 6, pathname) === '/todo/';
-
   const isSettings = (pathname.length === 9)
     ? pathname === '/settings'
     : R.slice(0, 10, pathname) === '/settings/';
@@ -108,17 +104,6 @@ export default function Navigation() {
                 component={Link}
               >
                 <Title size="6">Home</Title>
-              </Navbar.Item>
-              <Navbar.Item
-                className="is-hidden-mobile"
-                to="/todo"
-                active={isTodo}
-                tab
-                component={Link}
-              >
-                <Title size="6">
-                  Todo
-                </Title>
               </Navbar.Item>
               <Navbar.Item
                 className="is-hidden-mobile"
