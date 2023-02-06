@@ -7,16 +7,16 @@ import InventoryForm from '_components/organisms/InventoryForm';
 
 import styles from './styles.module.css';
 
-export default function AddInventoryPage() {
+export default function EditInventoryPage() {
   return (
     <div className={styles.root}>
       <Section>
         <Container>
           <Title size="1">
-            Add Item For Sale
+            Edit Inventory Item
           </Title>
         </Container>
-        <InventoryForm type="add" />
+        <InventoryForm type="edit" />
       </Section>
     </div>
   );

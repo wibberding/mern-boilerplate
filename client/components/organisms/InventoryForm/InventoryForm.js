@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import Field from 'react-bulma-companion/lib/Field';
 import Label from 'react-bulma-companion/lib/Label';
 import Control from 'react-bulma-companion/lib/Control';
@@ -14,9 +14,8 @@ import Textarea from 'react-bulma-companion/lib/Textarea';
 import Checkbox from 'react-bulma-companion/lib/Checkbox';
 import { attemptAddItem } from '_store/thunks/items';
 import useKeyPress from '_hooks/useKeyPress';
-// import { Block } from 'react-bulma-companion';
 
-export default function AddInventory() {
+export default function InventoryForm({ type }) {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -26,7 +25,12 @@ export default function AddInventory() {
 
   const handleAddItem = () => {
     if (name) {
-      dispatch(attemptAddItem({ name, description, price, withoutInventory, canBeShipped }));
+      if (type === 'add') {
+        dispatch(attemptAddItem({ name, description, price, withoutInventory, canBeShipped }));
+      }
+      // if (type === 'edit') {
+      //   dispatch(attemptEditItem({ name, description, price, withoutInventory, canBeShipped }));
+      // }
       setName('');
       setDescription('');
       setWithoutInventory(false);
@@ -85,3 +89,11 @@ export default function AddInventory() {
 
   );
 }
+
+InventoryForm.propTypes = {
+  type: PropTypes.string,
+};
+
+InventoryForm.defaultProps = {
+  type: 'add',
+};
