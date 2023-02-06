@@ -5,7 +5,7 @@ const auth         = require('./auth');
 const user         = require('./user');
 const users        = require('./users');
 const todos        = require('./todos');
-const items        = require('./items')
+const items        = require('./items');
 
 const router = express.Router();
 
