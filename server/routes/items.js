@@ -10,7 +10,7 @@ module.exports = router;
 router.get('/', requireAuth, (req, res) => {
   Item.find({ user: req.user.id }, { __v: 0, user: 0 }, (err, items) => {
     if (err) {
-      res.status(400).send({ message: 'Get users failed', err });
+      res.status(400).send({ message: 'Get items failed', err });
     } else {
       res.send({ message: 'Items retrieved successfully', items });
     }
@@ -27,7 +27,7 @@ router.post('/', requireAuth, (req, res) => {
     if (err) {
       res.status(400).send({ message: 'Create item failed', err });
     } else {
-      res.send({ message: 'Item created successfully', Item: savedItem });
+      res.send({ message: 'Item created successfully', item: savedItem });
     }
   });
 });

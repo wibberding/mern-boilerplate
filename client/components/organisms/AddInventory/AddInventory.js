@@ -30,7 +30,7 @@ export default function AddInventory() {
       setName('');
       setDescription('');
       setWithoutInventory(false);
-      setPrice(0);
+      setPrice('');
     }
   };
 

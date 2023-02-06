@@ -6,17 +6,19 @@ import { addItem } from '_store/actions/items';
 import { getTodos, postTodo, putToggleCompleteTodo, putTodo, deleteTodo } from '_api/todos';
 import { setTodos, addTodo, toggleCompleteTodo, updateTodo, removeTodo } from '_store/actions/todos';
 import { dispatchError } from '_utils/api';
+import { push } from 'redux-first-history';
 
 //* * Seller Routes */
 //* Get all seller items -Index
 
 //* Create a new item - Create
 export const attemptAddItem = data => dispatch =>
-  postItem()
+  postItem(data)
     .then(data => {
       const item = R.omit(['Id'], R.assoc('id', data.item._id, snakeToCamelCase(data.item)));
 
       dispatch(addItem(item));
+      dispatch(push('/inventory'));
       return data.user;
     })
     .catch(dispatchError(dispatch));

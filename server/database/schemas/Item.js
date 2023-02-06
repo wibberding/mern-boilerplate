@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 
 const itemSchema = new Schema({
   name: String,
+  user: String, //* user_id
   description: String,
   image_urls: Array,
   price: Number,

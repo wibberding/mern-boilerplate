@@ -6,13 +6,16 @@
 // export const INCREMENT_TODO_ID = 'INCREMENT_TODO_ID';
 export const ADD_ITEM = 'ADD_ITEM';
 
-export const addItem = ({ id, text, createdAt }) => ({
+export const addItem = ({ id, name, description, price, withoutInventory, canBeShipped, createdAt }) => ({
   type: ADD_ITEM,
   createdAt,
   id,
-  text,
+  name,
+  description,
+  price,
+  withoutInventory,
+  canBeShipped,
 });
-
 // export const setTodos = todos => ({
 //   type: SET_TODOS,
 //   todos,
