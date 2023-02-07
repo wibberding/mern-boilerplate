@@ -7,10 +7,10 @@ export const postItem = info =>
     .then(handleSuccess)
     .catch(handleError);
 
-// export const getTodos = () =>
-//   request.get('/api/todos')
-//     .then(handleSuccess)
-//     .catch(handleError);
+export const getItems = () =>
+  request.get('/api/items')
+    .then(handleSuccess)
+    .catch(handleError);
 
 // export const putToggleCompleteTodo = info =>
 //   request.put('/api/todos/complete')

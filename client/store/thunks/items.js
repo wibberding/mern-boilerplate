@@ -1,8 +1,8 @@
 import { snakeToCamelCase } from 'json-style-converter/es5';
 import R from 'ramda';
 
-import { postItem } from '_api/items';
-import { addItem } from '_store/actions/items';
+import { postItem, getItems } from '_api/items';
+import { addItem, setItems } from '_store/actions/items';
 // import { getTodos, postTodo, putToggleCompleteTodo, putTodo, deleteTodo } from '_api/todos';
 // import { setTodos, addTodo, toggleCompleteTodo, updateTodo, removeTodo } from '_store/actions/todos';
 import { dispatchError } from '_utils/api';
@@ -36,16 +36,16 @@ export const attemptAddItem = data => dispatch =>
 
 // //* Remove an item from inventory - Destroy
 
-// export const attemptGetTodos = () => dispatch =>
-//   getTodos()
-//     .then(data => {
-//       const todos = R.map(todo =>
-//         R.omit(['Id'], R.assoc('id', todo._id, snakeToCamelCase(todo))), data.todos);
+export const attemptGetItems = () => dispatch =>
+  getItems()
+    .then(data => {
+      const items = R.map(item =>
+        R.omit(['Id'], R.assoc('id', item._id, snakeToCamelCase(item))), data.items);
 
-//       dispatch(setTodos(todos));
-//       return data.todos;
-//     })
-//     .catch(dispatchError(dispatch));
+      dispatch(setItems(items));
+      return data.items;
+    })
+    .catch(dispatchError(dispatch));
 
 // export const attemptAddTodo = text => dispatch =>
 //   postTodo({ text })

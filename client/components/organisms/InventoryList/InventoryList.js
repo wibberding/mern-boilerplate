@@ -9,7 +9,7 @@ export default function InventoryList() {
 
   return (
     <ul className="todo-list">
-      {R.reverse(items).map(todo => <Item key={item.id} {...item} />)}
+      {R.reverse(items).map(item => <Item key={item.id} {...item} />)}
     </ul>
   );
 }

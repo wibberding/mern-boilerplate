@@ -1,4 +1,4 @@
-// export const SET_TODOS = 'SET_TODOS';
+export const SET_ITEMS = 'SET_ITEMS';
 // export const ADD_TODO = 'ADD_TODO';
 // export const TOGGLE_COMPLETE_TODO = 'TOGGLE_COMPLETE_TODO';
 // export const UPDATE_TODO = 'UPDATE_TODO';
@@ -16,10 +16,10 @@ export const addItem = ({ id, name, description, price, withoutInventory, canBeS
   withoutInventory,
   canBeShipped,
 });
-// export const setTodos = todos => ({
-//   type: SET_TODOS,
-//   todos,
-// });
+export const setItems = items => ({
+  type: SET_ITEMS,
+  items,
+});
 
 // export const addTodo = ({ id, text, createdAt }) => ({
 //   type: ADD_TODO,
