@@ -12,6 +12,12 @@ export const getItems = () =>
     .then(handleSuccess)
     .catch(handleError);
 
+export const deleteItem = info =>
+  request.delete('/api/items')
+    .send(info)
+    .then(handleSuccess)
+    .catch(handleError);
+
 // export const putToggleCompleteTodo = info =>
 //   request.put('/api/todos/complete')
 //     .send(info)
@@ -20,12 +26,6 @@ export const getItems = () =>
 
 // export const putTodo = info =>
 //   request.put('/api/todos')
-//     .send(info)
-//     .then(handleSuccess)
-//     .catch(handleError);
-
-// export const deleteTodo = info =>
-//   request.delete('/api/todos')
 //     .send(info)
 //     .then(handleSuccess)
 //     .catch(handleError);

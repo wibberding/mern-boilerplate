@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { parseISO, formatDistanceToNow } from 'date-fns';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons/faTrashCan';
-import { faBan } from '@fortawesome/free-solid-svg-icons/faBan';
 import { faPencil } from '@fortawesome/free-solid-svg-icons/faPencil';
 
 import Box from 'react-bulma-companion/lib/Box';
@@ -14,18 +12,17 @@ import Content from 'react-bulma-companion/lib/Content';
 import Level from 'react-bulma-companion/lib/Level';
 import Icon from 'react-bulma-companion/lib/Icon';
 
-// import { attemptDeleteItem } from '_store/thunks/items';
-import ConfirmModal from '_components/organisms/ConfirmModal';
+import { attemptDeleteItem } from '_store/thunks/items';
+import ConfirmDeleteModal from '_components/organisms/ConfirmDeleteModal';
 
-// export default function Item({ id, name, description, price, withoutInventory, canBeShipped, createdAt, updatedAt }) {
-export default function Item({ id, name, description }) {
+export default function Item({ id, name, description, price, withoutInventory, canBeShipped, createdAt, updatedAt }) {
   const dispatch = useDispatch();
   const [confirm, setConfirm] = useState(false);
 
   const openModal = () => setConfirm(true);
   const closeModal = () => setConfirm(false);
 
-  // const deleteItem = () => dispatch(attemptDeleteItem(id));
+  const deleteItem = () => dispatch(attemptDeleteItem(id));
 
   return (
     <Box className="todo" component="li">
@@ -40,6 +37,11 @@ export default function Item({ id, name, description }) {
             </p>
             <p>
               {description}
+              {price}
+              {withoutInventory}
+              {canBeShipped}
+              {createdAt}
+              {updatedAt}
             </p>
           </Content>
 
@@ -56,11 +58,10 @@ export default function Item({ id, name, description }) {
           </Level>
         </Media.Content>
       </Media>
-      <ConfirmModal
+      <ConfirmDeleteModal
         confirm={confirm}
         closeModal={closeModal}
-        deleteItem={null}
-        // deleteItem={deleteItem}
+        deleteFunction={deleteItem}
       />
     </Box>
   );
@@ -70,16 +71,16 @@ Item.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,
-  // price: PropTypes.string,
-  // withoutInventory: PropTypes.bool,
-  // canBeShipped: PropTypes.bool,
-  // createdAt: PropTypes.string.isRequired,
-  // updatedAt: PropTypes.string,
+  price: PropTypes.number,
+  withoutInventory: PropTypes.bool,
+  canBeShipped: PropTypes.bool,
+  createdAt: PropTypes.string.isRequired,
+  updatedAt: PropTypes.string,
 };
 Item.defaultProps = {
-  // updatedAt: null,
+  updatedAt: null,
   description: '',
-  // price: '',
-  // withoutInventory: false,
-  // canBeShipped: false,
+  price: null,
+  withoutInventory: false,
+  canBeShipped: false,
 };

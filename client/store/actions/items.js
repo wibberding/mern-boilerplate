@@ -1,10 +1,10 @@
+export const ADD_ITEM = 'ADD_ITEM';
 export const SET_ITEMS = 'SET_ITEMS';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
 // export const ADD_TODO = 'ADD_TODO';
 // export const TOGGLE_COMPLETE_TODO = 'TOGGLE_COMPLETE_TODO';
 // export const UPDATE_TODO = 'UPDATE_TODO';
-// export const REMOVE_TODO = 'REMOVE_TODO';
 // export const INCREMENT_TODO_ID = 'INCREMENT_TODO_ID';
-export const ADD_ITEM = 'ADD_ITEM';
 
 export const addItem = ({ id, name, description, price, withoutInventory, canBeShipped, createdAt }) => ({
   type: ADD_ITEM,
@@ -19,6 +19,11 @@ export const addItem = ({ id, name, description, price, withoutInventory, canBeS
 export const setItems = items => ({
   type: SET_ITEMS,
   items,
+});
+
+export const removeItem = id => ({
+  type: REMOVE_ITEM,
+  id,
 });
 
 // export const addTodo = ({ id, text, createdAt }) => ({
@@ -38,9 +43,4 @@ export const setItems = items => ({
 //   updatedAt,
 //   id,
 //   text,
-// });
-
-// export const removeTodo = id => ({
-//   type: REMOVE_TODO,
-//   id,
 // });
