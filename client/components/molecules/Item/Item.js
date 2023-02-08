@@ -11,11 +11,12 @@ import Media from 'react-bulma-companion/lib/Media';
 import Content from 'react-bulma-companion/lib/Content';
 import Level from 'react-bulma-companion/lib/Level';
 import Icon from 'react-bulma-companion/lib/Icon';
-
+import { useNavigate } from 'react-router';
 import { attemptDeleteItem } from '_store/thunks/items';
 import ConfirmDeleteModal from '_components/organisms/ConfirmDeleteModal';
 
 export default function Item({ id, name, description, price, withoutInventory, canBeShipped, createdAt, updatedAt }) {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [confirm, setConfirm] = useState(false);
 
@@ -23,6 +24,8 @@ export default function Item({ id, name, description, price, withoutInventory, c
   const closeModal = () => setConfirm(false);
 
   const deleteItem = () => dispatch(attemptDeleteItem(id));
+  const editItem = () => navigate('/edit_inventory', { state: { item: {
+    id, name, description, price, withoutInventory, canBeShipped, createdAt, updatedAt } } });
 
   return (
     <Box className="todo" component="li">
@@ -48,7 +51,7 @@ export default function Item({ id, name, description, price, withoutInventory, c
           <Level mobile>
             <Level.Left />
             <Level.Right>
-              <Icon className="space-right" onClick={null} onKeyPress={null}>
+              <Icon className="space-right" onClick={editItem} onKeyPress={editItem}>
                 <FontAwesomeIcon icon={faPencil} size="lg" />
               </Icon>
               <Icon onClick={openModal} onKeyPress={null}>
@@ -74,11 +77,12 @@ Item.propTypes = {
   price: PropTypes.number,
   withoutInventory: PropTypes.bool,
   canBeShipped: PropTypes.bool,
-  createdAt: PropTypes.string.isRequired,
+  createdAt: PropTypes.string,
   updatedAt: PropTypes.string,
 };
 Item.defaultProps = {
   updatedAt: null,
+  createdAt: null,
   description: '',
   price: null,
   withoutInventory: false,

@@ -1,6 +1,5 @@
 import { snakeToCamelCase } from 'json-style-converter/es5';
 import R from 'ramda';
-
 import { postItem, getItems, deleteItem } from '_api/items';
 import { addItem, setItems, removeItem } from '_store/actions/items';
 // import { getTodos, postTodo, putToggleCompleteTodo, putTodo, deleteTodo } from '_api/todos';
@@ -41,7 +40,6 @@ export const attemptDeleteItem = id => dispatch =>
       return data;
     })
     .catch(dispatchError(dispatch));
-//* Get the data for a specific item - Edit / Show
 
 //* Update an item's data - Update
 // export const attemptUpdateItem = (id, text) => dispatch =>

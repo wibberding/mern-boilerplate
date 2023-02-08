@@ -15,13 +15,15 @@ import Checkbox from 'react-bulma-companion/lib/Checkbox';
 import { attemptAddItem } from '_store/thunks/items';
 import useKeyPress from '_hooks/useKeyPress';
 
-export default function InventoryForm({ type }) {
+export default function InventoryForm({ type, item }) {
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [withoutInventory, setWithoutInventory] = useState(false);
-  const [canBeShipped, setCanBeShipped] = useState(false);
-  const [price, setPrice] = useState(0);
+  //* Set states if it's an edit form. Otherwise set a default.
+  const [id, setId] = useState(item.id ? item.id : null);
+  const [name, setName] = useState(item.name ? item.name : '');
+  const [description, setDescription] = useState(item.description ? item.description : '');
+  const [withoutInventory, setWithoutInventory] = useState(item.withoutInventory ? item.withoutInventory : false);
+  const [canBeShipped, setCanBeShipped] = useState(item.canBeShipped ? item.canBeShipped : false);
+  const [price, setPrice] = useState(item.price ? item.price : null);
 
   const handleAddItem = () => {
     if (name) {
@@ -29,12 +31,13 @@ export default function InventoryForm({ type }) {
         dispatch(attemptAddItem({ name, description, price, withoutInventory, canBeShipped }));
       }
       // if (type === 'edit') {
-      //   dispatch(attemptEditItem({ name, description, price, withoutInventory, canBeShipped }));
+      //   dispatch(attemptUpdateItem({ id, name, description, price, withoutInventory, canBeShipped }));
       // }
       setName('');
       setDescription('');
       setWithoutInventory(false);
       setPrice('');
+      setId(null);
     }
   };
 
@@ -81,7 +84,7 @@ export default function InventoryForm({ type }) {
             </Checkbox>
           </Field>
           <Button color="success" onClick={handleAddItem}>
-            Add Item
+            {type === 'add' ? 'Add Item' : 'Update Item'}
           </Button>
         </Box>
       </Column>
@@ -92,8 +95,22 @@ export default function InventoryForm({ type }) {
 
 InventoryForm.propTypes = {
   type: PropTypes.string,
+  item: PropTypes.object,
+  // id: PropTypes.string,
+  // name: PropTypes.string,
+  // description: PropTypes.string,
+  // withoutInventory: PropTypes.bool,
+  // canBeShipped: PropTypes.bool,
+  // price: PropTypes.number,
 };
 
 InventoryForm.defaultProps = {
   type: 'add',
+  item: {},
+  // id: null,
+  // name: '',
+  // description: '',
+  // withoutInventory: false,
+  // canBeShipped: false,
+  // price: null,
 };
