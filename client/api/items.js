@@ -24,8 +24,8 @@ export const deleteItem = info =>
 //     .then(handleSuccess)
 //     .catch(handleError);
 
-// export const putTodo = info =>
-//   request.put('/api/todos')
-//     .send(info)
-//     .then(handleSuccess)
-//     .catch(handleError);
+export const putItem = info =>
+  request.put('/api/items')
+    .send(info)
+    .then(handleSuccess)
+    .catch(handleError);

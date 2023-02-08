@@ -35,6 +35,8 @@ router.post('/', requireAuth, (req, res) => {
 //* Update an item - Update
 router.put('/', requireAuth, (req, res) => {
   Item.findById(req.body.id, { __v: 0, user: 0 }, (err, item) => {
+    // console.log(req.body);
+    // console.log(item);
     if (err) {
       res.status(400).send({ message: 'Update item failed', err });
     } else {
@@ -44,7 +46,7 @@ router.put('/', requireAuth, (req, res) => {
       item.updated_at = Date.now();
       item.save((err, savedItem) => {
         if (err) {
-          res.status(400).send({ message: 'Update item failed', err });
+          res.status(400).send({ message: 'Saving Update item failed', err });
         } else {
           res.send({ message: 'Updated item successfully', item: savedItem });
         }

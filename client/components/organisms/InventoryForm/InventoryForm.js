@@ -12,7 +12,7 @@ import Column from 'react-bulma-companion/lib/Column';
 import Columns from 'react-bulma-companion/lib/Columns';
 import Textarea from 'react-bulma-companion/lib/Textarea';
 import Checkbox from 'react-bulma-companion/lib/Checkbox';
-import { attemptAddItem } from '_store/thunks/items';
+import { attemptAddItem, attemptUpdateItem } from '_store/thunks/items';
 import useKeyPress from '_hooks/useKeyPress';
 
 export default function InventoryForm({ type, item }) {
@@ -29,15 +29,15 @@ export default function InventoryForm({ type, item }) {
     if (name) {
       if (type === 'add') {
         dispatch(attemptAddItem({ name, description, price, withoutInventory, canBeShipped }));
+        setName('');
+        setDescription('');
+        setWithoutInventory(false);
+        setPrice('');
+        setId(null);
       }
-      // if (type === 'edit') {
-      //   dispatch(attemptUpdateItem({ id, name, description, price, withoutInventory, canBeShipped }));
-      // }
-      setName('');
-      setDescription('');
-      setWithoutInventory(false);
-      setPrice('');
-      setId(null);
+      if (type === 'edit') {
+        dispatch(attemptUpdateItem({ id, name, description, price, withoutInventory, canBeShipped }));
+      }
     }
   };
 
