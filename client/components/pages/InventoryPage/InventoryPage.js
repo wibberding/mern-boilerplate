@@ -11,6 +11,8 @@ import Title from 'react-bulma-companion/lib/Title';
 import Button from 'react-bulma-companion/lib/Button';
 import Columns from 'react-bulma-companion/lib/Columns';
 import Column from 'react-bulma-companion/lib/Column';
+import Field from 'react-bulma-companion/lib/Field';
+import Input from 'react-bulma-companion/lib/Input';
 import InventoryList from '../../organisms/InventoryList/InventoryList';
 
 import styles from './styles.module.css';
@@ -47,6 +49,9 @@ export default function InventoryPage() {
           <Button color="success" onClick={routeChange} data-path="/add_inventory">
             Add Item
           </Button>
+          <Field>
+            <Input placeholder="https://css-tricks.com/in-page-filtered-search-with-vanilla-javascript/" />
+          </Field>
           <Columns>
             <Column size="8" offset="2" className="has-text-left">
               <InventoryList />
@@ -54,6 +59,7 @@ export default function InventoryPage() {
           </Columns>
         </Container>
       </Section>
+      <Section />
     </div>
   );
 }
