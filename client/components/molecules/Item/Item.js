@@ -28,7 +28,7 @@ export default function Item({ id, name, description, price, withoutInventory, c
     id, name, description, price, withoutInventory, canBeShipped, createdAt, updatedAt } } });
 
   return (
-    <Box className="todo" component="li">
+    <Box className="todo searchable" component="li">
       <Media>
         <Media.Left />
         <Media.Content>

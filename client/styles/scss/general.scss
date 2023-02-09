@@ -43,6 +43,9 @@ a {
   }
 }
 
+//* To hide things when needed
+.is-hidden { display: none; }
+
 // Bug in production
 .select select {
   padding-right: 2.5em;
