@@ -9,6 +9,7 @@ import { attemptGetUser } from '_store/thunks/user';
 import WelcomePage from '_components/pages/WelcomePage';
 import LoginPage from '_components/pages/LoginPage';
 import RegisterPage from '_components/pages/RegisterPage';
+import SignupPage from '_components/pages/SignupPage';
 import HomePageBuyer from '_components/pages/HomePageBuyer';
 import HomePageSeller from '_components/pages/HomePageSeller';
 import InventoryPage from '_components/pages/InventoryPage';
@@ -56,6 +57,7 @@ export default function Main() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
+          <Route path="signup" element={<SignupPage />} />
           <Route path="home_b" element={<HomePageBuyer />} />
           <Route path="home_s" element={<HomePageSeller />} />
           <Route path="inventory" element={<InventoryPage />} />

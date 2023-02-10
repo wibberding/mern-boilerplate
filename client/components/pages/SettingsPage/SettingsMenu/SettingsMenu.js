@@ -47,6 +47,24 @@ export default function SettingsMenu() {
             </Menu.Link>
           </Menu.ListItem>
           <Menu.ListItem>
+            <Menu.Link
+              to="/settings/buyer"
+              active={pathname.includes('buyer')}
+              component={Link}
+            >
+              Buyer
+            </Menu.Link>
+          </Menu.ListItem>
+          <Menu.ListItem>
+            <Menu.Link
+              to="/settings/seller"
+              active={pathname.includes('seller')}
+              component={Link}
+            >
+              Seller
+            </Menu.Link>
+          </Menu.ListItem>
+          <Menu.ListItem>
             <Menu.Link onClick={logout} onKeyPress={logout}>
               Logout
             </Menu.Link>

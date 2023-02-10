@@ -12,6 +12,8 @@ import Column from 'react-bulma-companion/lib/Column';
 import SettingsMenu from './SettingsMenu';
 import ProfileSettings from './ProfileSettings';
 import AccountSettings from './AccountSettings';
+import SellerSettings from './SellerSettings';
+import BuyerSettings from './BuyerSettings';
 
 export default function SettingsPage() {
   const dispatch = useDispatch();
@@ -36,6 +38,8 @@ export default function SettingsPage() {
               <Routes>
                 <Route path="profile" element={<ProfileSettings />} />
                 <Route path="account" element={<AccountSettings />} />
+                <Route path="buyer" element={<BuyerSettings />} />
+                <Route path="seller" element={<SellerSettings />} />
                 <Route path="*" element={<ProfileSettings />} />
               </Routes>
             </Column>
