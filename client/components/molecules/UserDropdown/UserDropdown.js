@@ -7,6 +7,7 @@ import R from 'ramda';
 import Box from 'react-bulma-companion/lib/Box';
 
 import { attemptLogout } from '_store/thunks/auth';
+import { attemptChangeViewToBuyer, attemptChangeViewToSeller } from '../../../store/thunks/views';
 
 export default function UserDropdown({ open, closeDropdown }) {
   const dispatch = useDispatch();
@@ -39,6 +40,18 @@ export default function UserDropdown({ open, closeDropdown }) {
       .catch(R.identity);
   };
 
+  const changeToSellerView = () => {
+    closeDropdown();
+    dispatch(attemptChangeViewToSeller())
+      .catch(R.identity);
+  };
+
+  const changeToBuyerView = () => {
+    closeDropdown();
+    dispatch(attemptChangeViewToBuyer())
+      .catch(R.identity);
+  };
+
   return open && (
     <Box className="dropdown" ref={dropdown}>
       <ul className="dropdown-list">
@@ -53,12 +66,12 @@ export default function UserDropdown({ open, closeDropdown }) {
         </li>
         <li className="dropdown-item">
           {user.sellerView ? (
-            <Link to="/settings" onClick={closeDropdown}>Switch to Buyer View </Link>
+            <a onClick={changeToBuyerView} onKeyUp={changeToBuyerView}>Switch to Buyer View </a>
           ) : (
             user.hasSellerAccount ? (
-              <Link to="/settings" onClick={closeDropdown}>Switch to Seller View </Link>
+              <a onClick={changeToSellerView} onKeyUp={changeToSellerView}>Switch to Seller View </a>
             ) : (
-              <Link to="/settings" onClick={closeDropdown}>
+              <Link to="/settings" onClick={closeDropdown} onKeyUp={closeDropdown}>
                 Open Seller Account
               </Link>
             )
@@ -66,7 +79,7 @@ export default function UserDropdown({ open, closeDropdown }) {
         </li>
         <hr className="dropdown-separator" />
         <li className="dropdown-item">
-          <a onClick={logout} onKeyPress={logout}>
+          <a onClick={logout} onKeyUp={logout}>
             Logout
           </a>
         </li>

@@ -1,7 +1,7 @@
 import { snakeToCamelCase } from 'json-style-converter/es5';
 import { Store as RNC } from 'react-notifications-component';
 
-import { getUser, putUser, putUserPassword } from '_api/user'; // putUserView
+import { getUser, putUser, putUserPassword } from '_api/user';
 import { updateUser } from '_store/actions/user';
 
 import { dispatchError } from '_utils/api';
@@ -35,30 +35,6 @@ export const attemptUpdateUser = updatedUser => dispatch =>
       return data;
     })
     .catch(dispatchError(dispatch));
-
-//* Takes seller view and true or false for buyer view.
-//! Needs user and seller_view
-// export const attemptUpdateUserView = sellerView => dispatch =>
-//   putUserView(sellerView)
-//     .then(data => {
-//       dispatch(updateUserView(snakeToCamelCase(data.user)));
-
-//       RNC.addNotification({
-//         title: 'Success!',
-//         message: data.message,
-//         type: 'success',
-//         insert: 'bottom',
-//         container: 'top-right',
-//         animationIn: ['animated', 'fadeInRight'],
-//         animationOut: ['animated', 'fadeOutRight'],
-//         dismiss: {
-//           duration: 5000,
-//         },
-//       });
-
-//       return data;
-//     })
-//     .catch(dispatchError(dispatch));
 
 export const attemptUpdatePassword = passwordInfo => dispatch =>
   putUserPassword(passwordInfo)

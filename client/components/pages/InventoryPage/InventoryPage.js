@@ -11,7 +11,6 @@ import Title from 'react-bulma-companion/lib/Title';
 import Button from 'react-bulma-companion/lib/Button';
 import Columns from 'react-bulma-companion/lib/Columns';
 import Column from 'react-bulma-companion/lib/Column';
-import Field from 'react-bulma-companion/lib/Field';
 import Input from 'react-bulma-companion/lib/Input';
 import InventoryList from '../../organisms/InventoryList/InventoryList';
 import { liveSearch } from '../../../utils/searchbox';
