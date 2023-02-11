@@ -4,6 +4,9 @@ import { push } from 'redux-first-history';
 import R from 'ramda';
 
 import Section from 'react-bulma-companion/lib/Section';
+import Title from 'react-bulma-companion/lib/Title';
+import Columns from 'react-bulma-companion/lib/Columns';
+import Column from 'react-bulma-companion/lib/Column';
 import Signup from './Signup/Signup';
 
 // import Register from '_components/organisms/Register';
@@ -21,8 +24,14 @@ export default function SignupPage() {
   return (
     <div>
       <Section>
-        <h1>Signup Page</h1>
-        <Signup />
+        <Title size="1" className="has-text-centered">
+          Signup
+        </Title>
+        <Columns>
+          <Column size="8" offset="2" className="has-text-centered">
+            <Signup />
+          </Column>
+        </Columns>
       </Section>
     </div>
   );
