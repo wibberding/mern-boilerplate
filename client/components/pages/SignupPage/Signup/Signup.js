@@ -9,24 +9,69 @@ import TermsAndConditions from '../TermsAndConditions';
 export default function Signup() {
   //* Keep state from all the subcomponents here to be submitted at the end.
   const [Phone, setPhone] = useState('');
-  const [buyerAccount, setBuyerAccount] = useState(true);
-  const [sellerAccount, setSellerAccount] = useState(false);
+  const [AddressStreet, setAddressStreet] = useState('');
+  const [AddressUnit, setAddressUnit] = useState('');
+  const [AddressCity, setAddressCity] = useState('');
+  const [AddressState, setAddressState] = useState('');
+  const [AddressZip, setAddressZip] = useState('');
+
+  const [IsSeller, setIsSeller] = useState(false);
+  const [IsBuyer, setIsBuyer] = useState(true);
+  const [IsReseller, setIsReseller] = useState(false);
+  const [ResellerProof, setResellerProof] = useState(null);
+
+  const [StoreName, setStoreName] = useState('sample');
+
+  const [AgreesToTerms, setAgreesToTerms] = useState(false);
 
   return (
     <div>
       <h1>Sign up Component</h1>
       <br />
-      <Address />
+      <Address
+        address={{
+          street: AddressStreet,
+          unit: AddressUnit,
+          city: AddressCity,
+          state: AddressState,
+          zip: AddressZip,
+        }}
+        setAddress={{
+          street: setAddressStreet,
+          unit: setAddressUnit,
+          city: setAddressCity,
+          state: setAddressState,
+          zip: setAddressZip,
+        }}
+      />
       <br />
-      <PhoneNumber />
+      <PhoneNumber phone={Phone} setPhone={setPhone} />
       <br />
-      <BuyOrSell />
+      <BuyOrSell
+        isBuyer={IsBuyer}
+        isSeller={IsSeller}
+        setIsBuyer={setIsBuyer}
+        setIsSeller={setIsSeller}
+      />
       <br />
-      <SellerInfo />
+      <SellerInfo
+        storeName={StoreName}
+        setStoreName={setStoreName}
+        />
       <br />
-      <BuyerInfo />
+      <BuyerInfo
+        isReseller={IsReseller}
+        resellerProof={ResellerProof}
+        setIsReseller={setIsReseller}
+        setResellerProof={setResellerProof}
+      />
       <br />
-      <TermsAndConditions />
+      {AgreesToTerms ? 'Yes I agree!' : 'No way do I agree'}
+      <p>{AgreesToTerms}</p>
+      <TermsAndConditions
+        agreesToTerms={AgreesToTerms}
+        setAgreesToTerms={setAgreesToTerms}
+      />
       <br />
     </div>
   );
